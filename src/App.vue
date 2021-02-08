@@ -45,8 +45,40 @@ body
       cursor: pointer
     &-item:hover
       color:#D7D7D7
-    &-item.router-link-active
+    &-item.router-link-exact-active
       border-bottom: 0
-
-      
+.smallLabel
+  opacity: 0.3
+  font-size: 12px
+.small-title
+  font-size: 15px
+  font-weight: 300
+  opacity: 0.5
+.main-container
+  max-width: 1000px
+  margin: auto
+  display: flex
+  justify-content: space-between
+  &__column
+    display: flex
+    flex-direction: column
+    width: 47%
+@media screen and (max-width: 860px) 
+  .main-container
+    flex-direction: column
+    &__column
+      width: 100%
+  .content-wrapper
+    padding: 0 10px 50px
+    .nav-item
+      padding: 10px 30px
+      font-size: 18px
+      line-height: 20px
+@media screen and (max-width: 480px) 
+  .content-wrapper
+    margin: 50px 5px
+  .nav-item
+    padding: 10px 3px
+    font-size: 14px
+    line-height: 20px
 </style>

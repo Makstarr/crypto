@@ -1,5 +1,5 @@
 <template>
-  <form class="wallet-form">
+  <div class="wallet-form">
     <h2 class="small-title">Пополнить кошелек</h2>
     <div class="smallLabel">Выберите валюту</div>
     <CoinsButtuns
@@ -8,28 +8,17 @@
       :classHandler="coinClass_1"
     />
     <div class="smallLabel">Введите сумму</div>
-    <InputField 
-    :inputChange="changeInputValue_1" 
-    :inputValue="inputValue_1" 
-    />
+    <InputField :inputChange="changeInputValue_1" :inputValue="inputValue_1" />
     <div class="smallLabel">В USD по курсу на {{ ratesWereUpdatedAt }}</div>
-    <InputField 
-    :inputChange="changeInputValue_2" 
-    :inputValue="inputValue_2" 
-    />
-    <input 
-    type="submit"
-    class="button"
-    v-if="inputValue_2 > 0" 
-    @click="makeTransaction"
-    value="Купить">
-
-    <button class="button"
-    v-if="inputValue_2 <= 0" 
-    :disabled="true">
-        Введите сумму
+    <InputField :inputChange="changeInputValue_2" :inputValue="inputValue_2" />
+    <button type="submit" class="button" v-if="inputValue_2 > 0" @click="makeTransaction">
+      Купить
     </button>
-  </form>
+
+    <button class="button" v-if="inputValue_2 <= 0" :disabled="true">
+      Введите сумму
+    </button>
+  </div>
 </template>
 
 <script>
@@ -62,12 +51,12 @@ export default {
     ...mapState(["allCoins", "ratesWereUpdatedAt"]),
   },
   methods: {
-    ...mapActions(["getCoins", "addToWallet", "getWaletCoins"]),
+    ...mapActions(["getCoins", "addToWallet", "getWalletCoins"]),
     makeTransaction() {
       this.addToWallet({ id: this.selectedCoin_1, amount: this.inputValue_1 });
       this.inputValue_1 = "";
       this.inputValue_2 = "";
-      this.getWaletCoins();
+      this.getWalletCoins();
     },
     // Классы для активных кнопок валюты
     coinClass_1(id) {
@@ -133,7 +122,7 @@ export default {
     color: #fff
     background-color: #151515
     cursor: not-allowed
-    
+
 .wallet-form
   padding: 10px 30px
   .input
@@ -143,6 +132,4 @@ export default {
     width: 100%
     border-radius: 5px
     margin: 5px 0
-
-
 </style>

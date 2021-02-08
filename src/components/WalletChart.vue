@@ -32,30 +32,6 @@ export default {
     ...mapState(["walletSum", "walletChartData"]),
   },
   mounted() {
-    /*for (let coin in this.walletCoins){
-        this.data.push(coin.inUsd)
-    }
-    new Chart(this.$refs.uniqueName, {
-      type: "doughnut",
-      data: {
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-        },
-        labels: ["Red", "Blue", "Yellow"],
-        datasets: [
-          {
-            label: this.data,
-            data: this.data,
-            backgroundColor: [
-              "rgb(255, 99, 132)",
-              "rgb(54, 162, 235)",
-              "rgb(255, 205, 86)",
-            ],
-          },
-        ],
-      },
-    });*/
   },
 };
 </script>

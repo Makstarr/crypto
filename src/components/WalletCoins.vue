@@ -8,7 +8,7 @@
           {{ coin.symbol }}
         </div>
         <div class="wallet-coins__in-usd">
-            {{(coin.inUsd*1).toFixed(2) }} $
+            {{(coin.price*1).toFixed(2) }} $
             <span class="smallLabel" v-if="coin.symbol != 'usd'"> {{coin.rate}}$ по курсу на {{walletWereUpdatedAt}}</span>
         </div>
     </li>
@@ -37,19 +37,19 @@ export default {
   li
     display: flex
   &__symbol
-    font-size: 70px
+    font-size: 65px
     line-height: 60px
     text-transform: uppercase
-    margin: 10px 30px 10px 0
+    margin: 10px 20px 10px 0
   &__in-usd
     display: flex
     flex-direction: column
-    font-size: 40px
+    font-size: 35px
     line-height: 40px
     margin-top: 30px
     font-weight: bold
     .smallLabel
-      margin-top: -5px
+      margin-top: 0px
       line-height: 12px
       font-weight: normal
 @media screen and (max-width: 1000px) 

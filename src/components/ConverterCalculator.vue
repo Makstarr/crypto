@@ -59,7 +59,7 @@ export default {
     ...mapState(["currenciesIds", "allCoins", "ratesWereUpdatedAt"]),
   },
   methods: {
-    ...mapActions(["updateLineChart", "getCoins", "coinClass"]),
+    ...mapActions(["updateLineChart", "getCoins"]),
     // Классы для активных кнопок валюты
     coinClass_1(id) {
       return id == this.selectedCoin_1 ? "selected" : "";
@@ -73,7 +73,6 @@ export default {
       let vs_currencie = this.allCoins.find((coin) => coin.id == this.selectedCoin_2)
         .symbol;
       this.updateLineChart({ id: coin.id, vs_currencie });
-      //
       this.rate_1 = coin.price;
       this.selectedCoin_1 = coin.id;
       this.calculate(this.inputValue_1);
