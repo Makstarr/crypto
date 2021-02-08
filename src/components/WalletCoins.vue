@@ -4,7 +4,7 @@
     v-for="(coin, index) in walletCoins" 
     :key="index" 
     >
-        <div class="wallet-coins__symbol">
+        <div class="wallet-coins__symbol ">
           {{ coin.symbol }}
         </div>
         <div class="wallet-coins__in-usd">

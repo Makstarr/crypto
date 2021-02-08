@@ -11,11 +11,14 @@
     <InputField :inputChange="changeInputValue_1" :inputValue="inputValue_1" />
     <div class="smallLabel">В USD по курсу на {{ ratesWereUpdatedAt }}</div>
     <InputField :inputChange="changeInputValue_2" :inputValue="inputValue_2" />
-    <button type="submit" class="button" v-if="inputValue_2 > 0" @click="makeTransaction">
-      Купить
-    </button>
+    <div class="buttons" v-if="inputValue_2 > 0">
+      <button class="button" @click="makeTransaction('buy')">Купить</button>
+      <button class="button" @click="makeTransaction('sell')">
+        Продать
+      </button>
+    </div>
 
-    <button class="button" v-if="inputValue_2 <= 0" :disabled="true">
+    <button class="button width-100" v-if="inputValue_2 <= 0" :disabled="true">
       Введите сумму
     </button>
   </div>
@@ -51,9 +54,13 @@ export default {
     ...mapState(["allCoins", "ratesWereUpdatedAt"]),
   },
   methods: {
-    ...mapActions(["getCoins", "addToWallet", "getWalletCoins"]),
-    makeTransaction() {
-      this.addToWallet({ id: this.selectedCoin_1, amount: this.inputValue_1 });
+    ...mapActions(["getCoins", "addToWallet", "sellFromWallet", "getWalletCoins"]),
+    makeTransaction(whatToDo) {
+      if (whatToDo==="sell"){
+          this.sellFromWallet({ id: this.selectedCoin_1, amount: this.inputValue_1 });
+      } else if (whatToDo==="buy"){
+          this.addToWallet({ id: this.selectedCoin_1, amount: this.inputValue_1 });
+      }
       this.inputValue_1 = "";
       this.inputValue_2 = "";
       this.getWalletCoins();
@@ -128,8 +135,13 @@ export default {
   .input
     font-size: 40px
     line-height: 50px
+  .buttons
+    display: flex
+    justify-content: space-between
   .button
-    width: 100%
+    width: 48%
+    &.width-100
+      width: 100%
     border-radius: 5px
     margin: 5px 0
 </style>

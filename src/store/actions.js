@@ -89,7 +89,14 @@
  /*
              Кошелек
   */
-
+var sellFromWallet = ({
+    commit
+}, payload) => {
+    commit("SELL_FROM_WALLET", {
+        id: payload.id,
+        amount: payload.amount
+    })
+}
  var addToWallet = ({
      commit
  }, payload) => {
@@ -137,5 +144,6 @@
      updateLineChart,
      getCoins,
      addToWallet,
+     sellFromWallet,
      getWalletCoins
  }

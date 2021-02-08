@@ -21,6 +21,7 @@ body
   border-radius: 0 5px 5px
   position: relative
   z-index: 1
+  padding: 0 10px 20px
   .nav
     position: absolute
     border-radius: 5px
@@ -77,8 +78,8 @@ body
 @media screen and (max-width: 480px) 
   .content-wrapper
     margin: 50px 5px
-  .nav-item
-    padding: 10px 3px
-    font-size: 14px
-    line-height: 20px
+    .nav-item
+      padding: 10px 3px
+      font-size: 14px
+      line-height: 20px
 </style>

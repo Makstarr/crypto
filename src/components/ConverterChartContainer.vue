@@ -131,4 +131,7 @@ export default {
     justify-content: center
     font-size: 40px
     opacity: .5
+@media screen and (max-width: 480px)
+  .container.chart
+    padding: 0px
 </style>

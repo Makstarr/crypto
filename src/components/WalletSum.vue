@@ -1,8 +1,7 @@
 <template>
   <div class="wallet-sum">
     <h1 class="small-title">Текущая стоимость потфеля</h1>
-    <div class="wallet-sum__sum" v-if="walletSum!=0 && Object.keys(walletCoins).length>0">{{ walletSum.toFixed(2) }} <span>USD</span></div>
-    <div class="wallet-sum__sum" v-else>Загрузка...</div>
+    <div class="wallet-sum__sum" >{{ walletSum.toFixed(2) }} <span>USD</span></div>
     <div class="smallLabel">По курсу на {{ walletWereUpdatedAt }}</div>
   </div>
 </template>

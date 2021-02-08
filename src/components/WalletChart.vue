@@ -55,9 +55,4 @@ export default {
   .wallet-chart
     padding: 10px 20px
     margin: 5px
-@media screen and (max-width: 480px)
-  .wallet-chart
-    .cdc
-      height: 260px!important
-      width: 260px!important
 </style>

@@ -45,6 +45,7 @@ let SET_WALLET_TIME = (state) => {
 var SET_WALLET_PRICE = (state, payload) => {
   let amount = state.walletCoins[payload.id].amount
   state.walletCoins[payload.id].price = amount * payload.price
+  state.walletCoins[payload.id].rate = payload.price
 }
 
 var SET_WALLET_SUM = (state) => {
@@ -66,6 +67,15 @@ var SET_WALLET_CHART = (state) => {
 var ADD_TO_WALLET = (state, payload) => {
   state.walletCoins[payload.id].amount = (state.walletCoins[payload.id].amount*1) + payload.amount
 }
+var SELL_FROM_WALLET = (state, payload) => {
+  let amount = state.walletCoins[payload.id].amount
+  if (amount>=payload.amount){
+    state.walletCoins[payload.id].amount = (amount*1) - payload.amount
+  } else {
+    alert ("На счету недостаточно средств")
+  }
+}
+
 
 export default {
   SET_LINE_CHART,
@@ -74,7 +84,9 @@ export default {
   ADD_TO_ALL_COINS,
   CLEAR_ALL_COINS,
   SET_ALL_COINS_TIME,
+
   SET_WALLET_TIME,
+  SELL_FROM_WALLET,
   ADD_TO_WALLET,
   SET_WALLET_SUM,
   SET_WALLET_CHART,

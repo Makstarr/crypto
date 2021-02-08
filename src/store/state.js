@@ -35,18 +35,21 @@ let walletCoins = {
   "dollar":{
     symbol: "usd",
     amount: "100",
-    price: "Загрузка..."
+    price: "Загрузка...",
+    rate: "Загрузка...",
   },
   "bitcoin":{
     symbol: "btc",
     amount: "10",
-    price: "Загрузка..."
+    price: "Загрузка...",
+    rate: "Загрузка...",
 
   },
   "ethereum":{
     symbol: "eth",
     amount: "5",
-    price: "Загрузка..."
+    price: "Загрузка...",
+    rate: "Загрузка...",
   }
 }
 
